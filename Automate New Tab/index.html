@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Test Page</title>
+</head>
+<body>
+
+    <h1>Target Blank Automation</h1>
+    <a href="https://www.google.com/">Test Link</a> <br>
+    <a href="#TEST">Test Anchor</a>
+
+    
+    <script>
+     // Select all anchor elements on the page
+        const anchors = document.querySelectorAll('a');
+
+        // Iterate through each anchor element
+        anchors.forEach(anchor => {
+            // Check if the href attribute does not start with '#'
+            if (anchor.getAttribute('href').charAt(0) !== '#') {
+                // Add an event listener to open the link in a new tab
+                anchor.addEventListener('click', function(event) {
+                    // Prevent the default action
+                    event.preventDefault();
+                    // Open the link in a new tab
+                    window.open(this.href, '_blank');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
